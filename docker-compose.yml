@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+
+  #docker run --name basic-postgres --rm -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=4y7sV96vA9wv46VR -e PGDATA=/var/lib/postgresql/data/pgdata -v /tmp:/var/lib/postgresql/data -p 5432:5432 -it postgres:14.1-alpine
+  #https://hub.docker.com/_/postgres
+  postgres:
+    #container_name: postgres
+    image: postgres
+    #image: postgres:14.1-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      PGDATA: /data/postgres
+      #PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres:/data/postgres
+      #- ./infra/postgres/postgresql.conf:/etc/postgresql/postgresql.conf
+      #- ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      #- ./.docker-compose/postgres/:/var/lib/postgresql
+    ports:
+      - 5432:5432
+
+  #docker run --rm -it --name pgadmin -e PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org -e PGADMIN_DEFAULT_PASSWORD=admin -e PGADMIN_CONFIG_SERVER_MODE=False -v /tmp:/var/lib/postgresql/data -p 80:80 dpage/pgadmin4
+  # pgadmin:
+  #   container_name: pgadmin
+  #   image: dpage/pgadmin4
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+  #     PGADMIN_CONFIG_SERVER_MODE: "False"
+  #     #MASTER_PASSWORD_REQUIRED: "False"
+  #   volumes:
+  #     - pgadmin:/var/lib/pgadmin
+  #   ports:
+  #     - 80:80
+  #   restart: unless-stopped
+
+volumes:
+  postgres:
+  #pgadmin:
