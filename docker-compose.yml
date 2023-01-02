@@ -22,20 +22,20 @@ services:
       - 5432:5432
 
   #docker run --rm -it --name pgadmin -e PGADMIN_DEFAULT_EMAIL=pgadmin4@pgadmin.org -e PGADMIN_DEFAULT_PASSWORD=admin -e PGADMIN_CONFIG_SERVER_MODE=False -v /tmp:/var/lib/postgresql/data -p 80:80 dpage/pgadmin4
-  # pgadmin:
-  #   container_name: pgadmin
-  #   image: dpage/pgadmin4
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
-  #     PGADMIN_CONFIG_SERVER_MODE: "False"
-  #     #MASTER_PASSWORD_REQUIRED: "False"
-  #   volumes:
-  #     - pgadmin:/var/lib/pgadmin
-  #   ports:
-  #     - 80:80
-  #   restart: unless-stopped
+  pgadmin:
+    #container_name: pgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+      #MASTER_PASSWORD_REQUIRED: "False"
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - 8080:80
+    restart: unless-stopped
 
 volumes:
   postgres:
-  #pgadmin:
+  pgadmin:
