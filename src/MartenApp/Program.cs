@@ -8,7 +8,6 @@ using Serilog.Sinks.SystemConsole.Themes;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
 builder.Services.AddMarten(options =>
 {
     var connString = builder.Configuration.GetConnectionString("Marten");
@@ -20,6 +19,8 @@ builder.Services.AddMarten(options =>
     {
         options.AutoCreateSchemaObjects = AutoCreate.All;
     }
+
+    options.Projections.Add<MyProjector>();
 });
 
 
