@@ -48,10 +48,11 @@ public class MyBgService : BackgroundService
 
                     await Task.Delay(1_000, cancellationToken);
 
-
+                    //this is a live projection
                     var l1 = await session.Events.AggregateStreamAsync<P1>(stream_id_location);
                     _logger.LogInformation($"here is projection RoomTemp1={l1.RoomTemp1}");
 
+                    //this is a live projection
                     var l2 = await session.Events.AggregateStreamAsync<P2>(stream_id_location);
                     _logger.LogInformation($"here is MyProjector TotalReadings={l2.TotalReadings}");
 
