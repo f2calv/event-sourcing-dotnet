@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33209.295
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MartenApp", "src\MartenApp\MartenApp.csproj", "{C9BD73A9-1C07-4FBD-99C9-FD63D901FAA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MartenApp", "src\MartenApp\MartenApp.csproj", "{C9BD73A9-1C07-4FBD-99C9-FD63D901FAA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

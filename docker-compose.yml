@@ -14,9 +14,9 @@ services:
       PGDATA: /data/postgres
       #PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - postgres:/data/postgres
+      # - postgres:/data/postgres
       #- ./infra/postgres/postgresql.conf:/etc/postgresql/postgresql.conf
-      #- ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
       #- ./.docker-compose/postgres/:/var/lib/postgresql
     ports:
       - 5432:5432
@@ -37,5 +37,5 @@ services:
     restart: unless-stopped
 
 volumes:
-  postgres:
+  #postgres:
   pgadmin:

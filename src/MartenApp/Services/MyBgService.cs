@@ -15,10 +15,10 @@ public class MyBgService : BackgroundService
         _store = store;
     }
 
-    protected async override Task ExecuteAsync(CancellationToken stoppingToken)
+    protected async override Task ExecuteAsync(CancellationToken cancellationToken)
     {
         _logger.LogInformation("starting...");
-        await Task.Delay(0, stoppingToken);
+        await Task.Delay(0, cancellationToken);
 
 
         await using (var session = _store.OpenSession())
@@ -31,7 +31,7 @@ public class MyBgService : BackgroundService
             while (true)
             {
                 _logger.LogInformation("iterating...");
-                await Task.Delay(1_000, stoppingToken);
+                await Task.Delay(1_000, cancellationToken);
 
                 for (var i = 1; i < 10_000; i++)
                 {
@@ -39,10 +39,10 @@ public class MyBgService : BackgroundService
 
                     session.Events.Append(stream_id_location, new TemperatureLogged(DateTime.Now, i));
                     // Save the pending changes to db
-                    await session.SaveChangesAsync();
+                    await session.SaveChangesAsync(cancellationToken);
                     _logger.LogInformation($"added event to stream {stream_id_location}");
 
-                    await Task.Delay(1_000, stoppingToken);
+                    await Task.Delay(1_000, cancellationToken);
 
                 }
             }

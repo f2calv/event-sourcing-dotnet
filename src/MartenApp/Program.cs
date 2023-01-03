@@ -16,7 +16,7 @@ builder.Services.AddMarten(options =>
 
     // If we're running in development mode, let Marten just take care
     // of all necessary schema building and patching behind the scenes
-    //if (Environment.IsDevelopment())
+    //if (builder.Environment.IsDevelopment())
     {
         options.AutoCreateSchemaObjects = AutoCreate.All;
     }
