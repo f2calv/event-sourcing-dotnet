@@ -1,13 +1,10 @@
 ﻿using CasCap.Services;
 using Marten;
 using Serilog;
-using Weasel.Core;
-using System.Runtime.InteropServices;
 using Serilog.Sinks.SystemConsole.Themes;
+using System.Runtime.InteropServices;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
 
 builder.Services.AddMarten(options =>
 {
@@ -18,10 +15,9 @@ builder.Services.AddMarten(options =>
     // of all necessary schema building and patching behind the scenes
     //if (Environment.IsDevelopment())
     {
-        options.AutoCreateSchemaObjects = AutoCreate.All;
+        options.AutoCreateSchemaObjects = JasperFx.AutoCreate.All;
     }
 });
-
 
 builder.Services.AddHostedService<MyBgService>();
 
@@ -31,4 +27,4 @@ builder.Host.UseSerilog((ctx, lc) => lc
 
 var app = builder.Build();
 app.MapGet("/", () => "hello event sourcing");
-app.Run();
+await app.RunAsync();
