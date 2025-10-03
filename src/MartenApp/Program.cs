@@ -9,8 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMarten(options =>
 {
     var connString = builder.Configuration.GetConnectionString("Marten");
-    options.Connection(connString);
-
+    if (connString is not null)
+        options.Connection(connString);
+    else
+        throw new Exception("connection string not set");
     // If we're running in development mode, let Marten just take care
     // of all necessary schema building and patching behind the scenes
     //if (Environment.IsDevelopment())
