@@ -12,9 +12,9 @@
 		"ghcr.io/devcontainers/features/github-cli:1": {},
 		"ghcr.io/devcontainers/features/powershell:1": {},
 		// "ghcr.io/devcontainers/features/terraform:1": {
-		//   "version": "1.6.0",
-		//   "tflint": "0.48.0",
-		//   "terragrunt": "0.53.1"
+		//   "version": "1.13.3",
+		//   "tflint": "0.59.1",
+		//   "terragrunt": "0.88.1"
 		// },
 		// "ghcr.io/dhoeric/features/terraform-docs:1": {
 		//   "version": "latest"
@@ -28,7 +28,7 @@
 		},
 		"ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
 			"version": "latest",
-			"helm": "3.16.1",
+			"helm": "3.19.0",
 			"minikube": "none"
 		},
 		"ghcr.io/devcontainers-extra/features/argo-cd:1": {}
