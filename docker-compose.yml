@@ -12,10 +12,10 @@ services:
       PGDATA: /data/postgres
       #PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - postgres:/data/postgres
-      #- ./infra/postgres/postgresql.conf:/etc/postgresql/postgresql.conf
-      #- ./infra/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
-      #- ./.docker-compose/postgres/:/var/lib/postgresql
+      - ./.docker/postgres:/data/postgres
+      #- ./.docker/postgres/postgresql.conf:/etc/postgresql/postgresql.conf
+      #- ./.docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      #- ./.docker/postgres/:/var/lib/postgresql
     ports:
       - 5432:5432
 
@@ -29,11 +29,7 @@ services:
       PGADMIN_CONFIG_SERVER_MODE: "False"
       #MASTER_PASSWORD_REQUIRED: "False"
     volumes:
-      - pgadmin:/var/lib/pgadmin
+      - ./.docker/pgadmin:/var/lib/pgadmin
     ports:
       - 8080:80
     restart: unless-stopped
-
-volumes:
-  postgres:
-  pgadmin:
