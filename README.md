@@ -1,5 +1,7 @@
 # Event Sourcing with .NET
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=f2calv_event-sourcing-dotnet&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=f2calv_event-sourcing-dotnet)
+
 This .NET 10 learning repository demonstrates event persistence with Marten and PostgreSQL from a
 hosted worker in a minimal ASP.NET Core application.
 
