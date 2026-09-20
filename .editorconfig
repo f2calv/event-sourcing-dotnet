@@ -1,6 +1,13 @@
 # Remove the line below if you want to inherit .editorconfig settings from higher directories
 root = true
 
+# Repository text files
+[*.{json,jsonc,props,targets,csproj,slnx,xml,yml,yaml}]
+indent_size = 2
+indent_style = space
+end_of_line = lf
+insert_final_newline = true
+
 # C# files
 [*.cs]
 
