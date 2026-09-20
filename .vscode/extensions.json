@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "ms-azuretools.vscode-containers",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "davidanson.vscode-markdownlint",
+    "redhat.vscode-yaml",
+    "github.vscode-github-actions",
+    "ms-dotnettools.csdevkit"
+  ]
+}
