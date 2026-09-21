@@ -36,7 +36,7 @@ public class MyBgService : BackgroundService
 
                     session.Events.Append(stream_id_location, new TemperatureLogged(DateTime.Now, i));
                     // Save the pending changes to db
-                    await session.SaveChangesAsync();
+                    await session.SaveChangesAsync(stoppingToken);
                     _logger.LogInformation("added event to stream {StreamIdLocation}", stream_id_location);
 
                     await Task.Delay(1_000, stoppingToken);
