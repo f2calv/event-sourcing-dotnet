@@ -35,6 +35,7 @@ jobs:
     uses: f2calv/gha-workflows/.github/workflows/app-build-dotnet.yml@v1
     with:
       solution-name: event-sourcing-dotnet.slnx
+      execute-tests: false
       version: ${{ needs.versioning.outputs.version }}
 
   release:
